@@ -8,10 +8,12 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
+    "build:image": "docker build -t aos-nice .",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
+    "start:container": "docker run -d -p 3000:80 aos-nice",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
