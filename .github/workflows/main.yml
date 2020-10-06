@@ -61,6 +61,7 @@ jobs:
         uses: 'azure/aci-deploy@v1'
         with:
           resource-group: aos-nice
+          dns-name-label: aos-nice${{ github.run_number }}
           image: https://hub.docker.com/spontoreau/aos-nice:latest
           registry-login-server: https://hub.docker.com
           registry-username: ${{ secrets.REGISTRY_USERNAME }}
