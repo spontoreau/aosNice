@@ -47,7 +47,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: spontoreau/aos-nice:latest
+          tags: spontoreau/aos-nice:${{ github.run_number }}
 
       #- name: Build Docker image
       #  run: docker build -t aos-nice .
@@ -61,8 +61,8 @@ jobs:
         uses: 'azure/aci-deploy@v1'
         with:
           resource-group: aos-nice
-          dns-name-label: aos-nice${{ github.run_number }}
-          image: spontoreau/aos-nice:latest
+          dns-name-label: aos-nice
+          image: spontoreau/aos-nice:${{ github.run_number }}
           registry-login-server: https://hub.docker.com
           registry-username: ${{ secrets.REGISTRY_USERNAME }}
           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
