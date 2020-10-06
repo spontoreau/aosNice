@@ -62,7 +62,7 @@ jobs:
         with:
           resource-group: aos-nice
           dns-name-label: aos-nice${{ github.run_number }}
-          image: https://hub.docker.com/spontoreau/aos-nice:latest
+          image: spontoreau/aos-nice:latest
           registry-login-server: https://hub.docker.com
           registry-username: ${{ secrets.REGISTRY_USERNAME }}
           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
