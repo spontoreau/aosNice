@@ -1,13 +1,14 @@
 FROM node:14 AS builder
 WORKDIR /app
 COPY ./package.json ./
-RUN npm install
+COPY ./yarn.lock ./
+RUN yarn
 COPY . .
-RUN npm run build
+RUN yarn build
 
 FROM node:14-alpine
 WORKDIR /app
 COPY --from=builder /app ./
 
 EXPOSE 80
-CMD ["npm", "run", "start:prod"]
+CMD ["yarn", "run", "start:prod"]
